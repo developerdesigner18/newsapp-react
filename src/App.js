@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Home from './components/home/Home'
+import Login from './components/login/Login'
+import News from './components/news/News'
+import OnlyIfNotLoggedIn from './components/OnlyIfNotLoggedIn'
+import Profile from './components/profile/Profile'
+import RequireUser from './components/RequireUser'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route element={<RequireUser />}>
+          <Route element={<Home />} >
+            <Route path='/' element={<News/>}/>
+            <Route path='/profile' element={<Profile/>}/>
+          </Route>
+        </Route>
+
+        <Route element={<OnlyIfNotLoggedIn />}>
+          <Route path='/login' element={<Login />} />
+        </Route>
+      </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
