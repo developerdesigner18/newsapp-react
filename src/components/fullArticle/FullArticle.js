@@ -19,7 +19,7 @@ const FullArticle = ({ currentArticle }) => {
                     <img src={currentArticle?.urlToImage ? currentArticle?.urlToImage : dummy} alt="" onError={(e) => { e.target.src = `${dummy}` }} />
                 </div>
                 <div className="full-article-right">
-                    <p><span>Title:</span> {currentArticle?.title}</p>
+                    <p><span className='full-article-title'>{currentArticle?.title}</span> </p>
                     <p><span>Description:</span> {currentArticle?.description}</p>
                     <p><span>Content:</span> {currentArticle?.content}</p>
                     <p><span>Author:</span> {currentArticle?.author ? currentArticle?.author : 'Unknown'}</p>
