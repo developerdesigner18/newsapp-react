@@ -7,10 +7,11 @@ import { updatShowNewsData } from '../../utils/utilFunctions'
 import './News.scss'
 import { useNavigate } from 'react-router-dom';
 import { getItem, TEST_CURRENT_USER } from '../../utils/LocalStorageManager';
+import dummy from '../../assets/default news img.jpg'
 
 const News = ({ setCurrentArticle }) => {
 
-    const limit = 12;
+    const limit = 9;
     const [index, setIndex] = useState(0);
     const [newsData, setNewsData] = useState([]);
     const [newsDataToShow, setNewsDataToShow] = useState([]);
@@ -28,6 +29,7 @@ const News = ({ setCurrentArticle }) => {
             const data = await res.json();
 
             setNewsData(data.articles);
+            setIndex(0);
 
         } catch (e) {
             console.log(e);
@@ -35,7 +37,11 @@ const News = ({ setCurrentArticle }) => {
     }
 
     useEffect(() => {
-        fetchNewsData();
+        let timeout = setTimeout(() => {
+            fetchNewsData();
+        }, 800)
+
+        return () => clearTimeout(timeout);
     }, [query])
 
     useEffect(() => {
@@ -108,18 +114,21 @@ const News = ({ setCurrentArticle }) => {
                                 title = news.title.slice(0, 30) + '...';
                             }
 
-                            if (desc && desc.length > 15) {
-                                desc = news.description.slice(0, 15) + '...';
+                            if (desc && desc.length > 50) {
+                                desc = news.description.slice(0, 50) + '...';
                             }
 
+
+
                             return (
-                                <div key={index} className='news-card' onClick={() => goToFullArticlePage({...news})}>
+                                <div key={index} className='news-card'>
                                     <div className="left">
-                                        <img src={news.urlToImage} alt="" />
+                                        <img src={news?.urlToImage ? news?.urlToImage : dummy} alt="" onError={(e) => { e.target.src = `${dummy}` }} />
                                     </div>
                                     <div className="right">
-                                        <p>{title}</p>
-                                        <p>{desc}</p>
+                                        <p className='news-title'>{title}</p>
+                                        <p className='news-desc'>{desc}</p>
+                                        <Button onClick={() => goToFullArticlePage({ ...news })} size='sm' variant='outline-primary'>Show more</Button>
                                     </div>
                                 </div>
                             )

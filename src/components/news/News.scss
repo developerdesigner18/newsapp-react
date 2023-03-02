@@ -8,16 +8,18 @@
 
 .news-container{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 3vh;
 
     .news-card{
-        border: 1px solid black;
-        padding: 10px;
+        // border: 1px solid black;
+        // padding: 10px;
         display: flex;
         gap: 10px;
-        height: 130px;
+        min-height: 130px;
         transition: all linear 0.1s;
+        box-shadow: 3px 6px 30px -7px rgba(54,50,54,1);
+        border-radius: 5px;
 
         .left{
             display: flex;
@@ -33,12 +35,23 @@
         }
 
         .right{
+            padding: 8px;
             flex: 2;
+
+            .news-title{
+                font-weight: 700;
+                font-size: 1rem;
+            }
+
+            .news-desc{
+                font-style: italic;
+                font-size: 0.9rem;
+            }
         }
 
         &:hover{
             cursor: pointer;
-            scale: 1.1;
+            scale: 1.05;
         }
     }
 }
@@ -47,6 +60,6 @@
     width: 100%;
     display: flex;
     justify-content: end;
-    margin-top: 5vh;
+    margin: 5vh 0;
     gap: 2vh;
 }

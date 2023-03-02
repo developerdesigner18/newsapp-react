@@ -1,7 +1,10 @@
 .full-article{
-    border: 1px solid black;
+    // border: 1px solid black;
     height: 70vh;
     display: flex;
+    box-shadow: 3px 6px 30px -7px rgba(54,50,54,1);
+    border-radius: 8px;
+    overflow: hidden;
 
     .full-article-left{
         width: 100%;
@@ -10,7 +13,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 10vh;
+        // padding: 10vh;
         
         img {
             height: 100%;

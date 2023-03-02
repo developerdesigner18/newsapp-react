@@ -21,29 +21,33 @@ const Profile = () => {
 
     return (
         <Container>
-            <Button className='mt-4' variant="outline-primary" onClick={()=>navigate('/')}>
+            <Button className='mt-4' variant="outline-primary" onClick={() => navigate('/')}>
                 <HiOutlineArrowNarrowLeft style={{ fontSize: '1.5rem' }} />
             </Button>
-            <Container className='mt-4'>
-                <Row className='mt-2'>
-                    <Col className='label'>Name: <span>{user?.name}</span></Col>
-                </Row>
-                <Row className='mt-2'>
-                    <Col className='label'>Email: <span>{user?.email}</span></Col>
-                </Row>
-                <Row className='mt-2'>
-                    <Col className='label'>Token: <span>{user?.token}</span></Col>
-                </Row>
+            <Container className='mt-4 profile-container'>
+                <div className='user-info'>
+                    <Row className='mt-2'>
+                        <Col className='label'>Name: <span>{user?.name}</span></Col>
+                    </Row>
+                    <Row className='mt-2'>
+                        <Col className='label'>Email: <span>{user?.email}</span></Col>
+                    </Row>
+                    <Row className='mt-2'>
+                        <Col className='label'>Token: <span>{user?.token}</span></Col>
+                    </Row>
+                </div>
             </Container>
-            <Button
-                className='mt-4 d-flex align-items-center justify-content-center'
-                variant="outline-primary"
-                onClick={() => setModalShow(true)}>
-                Edit
-            </Button>
+            <div className='edit-btn'>
+                <Button
+                    className='mt-4 d-flex align-items-center justify-content-center'
+                    variant="outline-primary"
+                    onClick={() => setModalShow(true)}>
+                    Edit
+                </Button>
+            </div>
 
-            <MyModal title='Update Profile' show={modalShow} onHide={() => setModalShow(false)}>
-                <UpdateProfile user={user} setUser={setUser} onHide={() => setModalShow(false)}/>
+            <MyModal contentTitle='Update Profile' show={modalShow} onHide={() => setModalShow(false)}>
+                <UpdateProfile user={user} setUser={setUser} onHide={() => setModalShow(false)} />
             </MyModal>
         </Container>
     )

@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,4 +16,78 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
+.home__left {
+  background: steelblue;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.home__img {
+  width: 120px;
+}
+
+.home__logo {
+  width: 140px;
+  padding: 10px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.home__right {
+  /* border: 1px solid black; */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__title {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 600px) {
+
+  /* Projects------------------------------ */
+  .home {
+    flex-direction: row;
+  }
+
+  .home__left {
+    flex: 0.3;
+    height: 100vh;
+  }
+
+  .home__img {
+    width: 220px;
+  }
+
+  .home__logo {
+    width: 200px;
+    padding: 20px;
+    border-radius: 1rem;
+  }
+
+  .home__right {
+    flex: 0.7;
+    padding: 40px;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
 }
