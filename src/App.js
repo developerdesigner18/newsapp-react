@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import FullArticle from './components/fullArticle/FullArticle'
 import Home from './components/home/Home'
 import Login from './components/login/Login'
 import News from './components/news/News'
@@ -8,13 +9,17 @@ import Profile from './components/profile/Profile'
 import RequireUser from './components/RequireUser'
 
 const App = () => {
+
+  const [currentArticle, setCurrentArticle] = useState(null);
+
   return (
     <div>
       <Routes>
         <Route element={<RequireUser />}>
           <Route element={<Home />} >
-            <Route path='/' element={<News/>}/>
-            <Route path='/profile' element={<Profile/>}/>
+            <Route path='/' element={<News setCurrentArticle={setCurrentArticle}/>}/>
+            <Route path='/profile' element={<Profile />}/>
+            <Route path='/fullArticle' element={<FullArticle currentArticle={currentArticle}/>}/>
           </Route>
         </Route>
 

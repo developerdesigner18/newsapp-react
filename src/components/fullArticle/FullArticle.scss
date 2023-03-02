@@ -1,0 +1,35 @@
+.full-article{
+    border: 1px solid black;
+    height: 70vh;
+    display: flex;
+
+    .full-article-left{
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10vh;
+        
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .full-article-right{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 5vh;
+
+        p{
+            span{
+                font-weight: bold;
+            }
+        }
+    }
+}

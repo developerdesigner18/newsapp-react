@@ -42,7 +42,7 @@ const Profile = () => {
                 Edit
             </Button>
 
-            <MyModal show={modalShow} onHide={() => setModalShow(false)}>
+            <MyModal title='Update Profile' show={modalShow} onHide={() => setModalShow(false)}>
                 <UpdateProfile user={user} setUser={setUser} onHide={() => setModalShow(false)}/>
             </MyModal>
         </Container>
